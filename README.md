@@ -1,14 +1,14 @@
 # Legendre Gauss Lobatto collocation
 
 ## Description
-The `lglpsmethods.py` computes LGL quadrature, differentiation and nodes, given grid size or number of intervals (N). To use the code,
+The `lglpsmethods.py` computes LGL nodes, quadrature weights and differentiation matrix, given the grid size or number of intervals (N). To use the code,
 import the `LGL` class from the `lglpsmethods.py` module. 
 
 ## Example
 
 The following exercise demonstrates 
-* numerical derivative computation of the sine function on the interval $[0,2\pi]$ and compares with the analytical solution
-* verfies integral of sine over the interval is zero numerically and analytically
+1. use of differentiation matrix to compute numerical derivative of the sine function and compare with the analytical solution
+2. integrate numerically using quadrature weights over the given interval and compare with analytical solution
 
 ### python code
 
