@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "lgl-ps-utils"
+version = "0.0.1"
+description = "A python package which provides helper methods to compute quadrature, interpolants, differentiation matrix , integration matrix and birkhoff integration matrix for LGL points."
+authors = ["sandeep <rskravi15@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+casadi = "^3.7.2"
+pytest = "^9.0.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
