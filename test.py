@@ -27,5 +27,6 @@ def integral_sin() -> np.ndarray:
 
 npt.assert_array_almost_equal(integral_sin(),0,decimal=4)
 npt.assert_array_almost_equal(y_dot,y_dot_an,decimal=4)
+
 npt.assert_array_almost_equal(lgl.D@ones.reshape(N+1,1),zeros.reshape(N+1,1),decimal=4)
 
