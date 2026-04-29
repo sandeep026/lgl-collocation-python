@@ -8,8 +8,8 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-casadi = "^3.7.2"
 pytest = "^9.0.3"
+numpy = "^2.4.4"
 
 
 [build-system]
