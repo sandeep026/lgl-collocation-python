@@ -1,16 +1,22 @@
-# Legendre Gauss Lobatto collocation
+# lgltools
 
 ## Description
-The `lglpsmethods.py` computes LGL nodes, quadrature weights and differentiation matrix, given the grid size or number of intervals (N). To use the code,
-import the `LGL` class from the `lglpsmethods.py` module. 
+The `lgltoolss.py` is a python package that computes LGL nodes, quadrature weights, differentiation matrix and integration matrix (Lagrange and Birkhoff based). 
+
+## Installation
+1. creata a virtual environment or use an existing one
+2. clone the repository and move to the root directory of the project
+3. run `pip install .`
 
 ## Example
 
-The following exercise demonstrates 
-1. use of differentiation matrix to compute numerical derivative of the sine function and compare with the analytical solution
-2. integrate numerically using quadrature weights over the given interval and compare with analytical solution
+1. compute derivative of $(\sin (x))$ using the differentiation matrix
+2. compare with the analytical solution $(\cos (x))$
+3. compute $\int_{0}^{2\pi}\sin(x)dx$ using quadrature
+4. compare with analytical solution (area under curve is zero)
+5. last row of integration matrices (Lagrange and Birkhoff) are LGL quadrature
 
-### python code
+### Python code
 
 ```
 # plotting results
@@ -39,11 +45,18 @@ plt.show()
 print(lgl.wi.T@y)
 ```
 
-### output
+### Output
 
 ![sine derivative](lgl_der_sine.png "lgl")
-
 
 ```
 quadrature: [[1.43226551e-17]]
 ```
+
+## Integration matrices based on Birkhoff and Lagrange interpolation
+
+In many applications, when higher resolution of a grid is a requirement, LGL collocation based on differentiation matrices do not scale well due to ill-conditioned operation and typically limited to `n<=100`. For higher resolution, perform the integration operation (e.g., on ode) to compute the solution. `lgltools` has a Lagrange and Birkhoff-based integration matrix. The ode state rate is approximated using Lagrange interpolant in a Lagrange-based integration matrix. On the other hand, a Birkhoff interpolation using the initial state and state rates at remainder nodes leads to a Birkhoff integration matrix. While both offer better conditioning than the differentiation matrix-based methods, the Birkhoff integration matrix is superior to Lagrange.
+
+
+
+
